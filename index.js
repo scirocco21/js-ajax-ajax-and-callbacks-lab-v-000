@@ -18,7 +18,7 @@ function displayResults(searchTerms) {
      $("#results").html(responseList);
    }).fail(error => {
     displayError()
-  }
+  })
 }
 
 function displayError(){
@@ -35,7 +35,7 @@ function showCommits(el) {
     document.getElementById("details").innerHTML = commitsList
   }).fail(error => {
     displayError()
-  }
+  })
 }
 
 $(document).ready(function (){
