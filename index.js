@@ -16,7 +16,9 @@ function displayResults(searchTerms) {
         "</li>";
      }
      $("#results").html(responseList);
-   })
+   }).fail(error => {
+    displayError()
+  })
 }
 
 function displayError(){
@@ -31,6 +33,8 @@ function showCommits(el) {
     console.log(response)
     const commitsList = `<ul>${response.map(commit => '<li><h2>' + commit["author"]["login"] + '</h2>' + commit["commit"]["author"]["name"] + ' - ' + commit["commit"]["message"] + '<br>' + commit["sha"] + '</li>').join('')}</ul>`
     document.getElementById("details").innerHTML = commitsList
+  }).fail(error => {
+    displayError()
   })
 }
 
